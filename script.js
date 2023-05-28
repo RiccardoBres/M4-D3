@@ -2,6 +2,7 @@
 const apiKey = "GDyXb9JPhd6P9zlVgCzQSBt24pKrTSfyQqoTUi0fzS5jQ7AcpPOrwh7B";
 const apiUrl = 'https://api.pexels.com/v1';
 let container = document.getElementById("portrait");
+container.classList.add("container", "d-flex")
 let button = document.getElementById("button")
 
 
@@ -21,9 +22,22 @@ function search(buttonValue) {
 function append(photos){
    container.innerHTML = ""
    let imgEl = photos.map((photo) =>{
+   let card = document.createElement("div")
+   card.classList.add("card", "col-sm-6", "col-md-4", "col-lg-2", "m-2", "bg-dark", "mt-4")
+   let title = document.createElement("p");
+   title.innerText = photo.photographer;
+   title.classList.add("text-light");
+   console.log(photo);
    let img = document.createElement("img")
+   img.classList.add("immage-fluid")
    img.src = photo.src.medium
-   return img })
+   let description = document.createElement("p");
+   description.innerText = photo.alt;
+   description.classList.add("text-light");
+   card.append(description);
+   card.append(title);
+   card.append(img);
+   return card })
    container.append(...imgEl)} 
 
 button.addEventListener("click", function () {
