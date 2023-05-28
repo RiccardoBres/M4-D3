@@ -28,8 +28,8 @@ function append(photos){
    title.innerText = photo.photographer;
    title.classList.add("text-light");
    console.log(photo);
-   let img = document.createElement("img")
-   img.classList.add("immage-fluid")
+   let img = document.createElement("img");
+   img.classList.add("immage-fluid");
    img.src = photo.src.medium
    let description = document.createElement("p");
    description.innerText = photo.alt;
